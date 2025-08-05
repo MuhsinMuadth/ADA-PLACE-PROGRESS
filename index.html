@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADA Placement Platform - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">ADA Place & Progress</div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="placements.html" class="nav-link">Placements</a></li>
+                    <li><a href="progress.html" class="nav-link">Progress</a></li>
+                    <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+                </ul>
+                <div class="user-menu">
+                    <div class="notification-badge">🔔</div>
+                    <div class="user-avatar" onclick="openProfile()">JS</div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">The ADA Place & Progress Platform</h1>
+                <p class="dashboard-subtitle">Connecting T-Level students with industry placements that drive career success</p>
+            </div>
+
+            <div class="user-type-selector">
+                <button class="user-type-btn active" data-type="student">👨‍🎓 Student Dashboard</button>
+                <button class="user-type-btn" data-type="employer">🏢 Employer Portal</button>
+                <button class="user-type-btn" data-type="staff">👩‍💼 Staff Admin</button>
+            </div>
+
+            <!-- Student Dashboard -->
+            <div id="student-content" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">85%</span>
+                        <div class="stat-label">Profile Complete</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <div class="stat-label">Placement Matches</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <div class="stat-label">Applications Sent</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1</span>
+                        <div class="stat-label">Interview Scheduled</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🎯</div>
+                            <div class="card-title">Recommended Placements</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="placement-card">
+                                <div class="placement-header">
+                                    <div class="company-name">TechFlow Digital</div>
+                                    <div class="match-score">92% Match</div>
+                                </div>
+                                <div class="placement-details">
+                                    Full-stack Development • Manchester • 6 months
+                                </div>
+                                <div class="placement-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">Remote</span>
+                                </div>
+                                <button class="btn btn-primary">Apply Now</button>
+                            </div>
+                            
+                            <div class="placement-card">
+                                <div class="placement-header">
+                                    <div class="company-name">CloudTech Solutions</div>
+                                    <div class="match-score">88% Match</div>
+                                </div>
+                                <div class="placement-details">
+                                    Cloud Infrastructure • Hybrid • 4 months
+                                </div>
+                                <div class="placement-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">DevOps</span>
+                                    <span class="tag">Hybrid</span>
+                                </div>
+                                <button class="btn btn-secondary">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">📋</div>
+                            <div class="card-title">Readiness Checklist</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: between; margin-bottom: 0.5rem;">
+                                    <span>✅ CV Updated</span>
+                                </div>
+                                <div style="display: flex; justify-content: between; margin-bottom: 0.5rem;">
+                                    <span>✅ Portfolio Complete</span>
+                                </div>
+                                <div style="display: flex; justify-content: between; margin-bottom: 0.5rem;">
+                                    <span>⏳ Interview Prep</span>
+                                </div>
+                                <div style="display: flex; justify-content: between; margin-bottom: 0.5rem;">
+                                    <span>❌ Industry Research</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                            <p style="text-align: center; margin-top: 0.5rem;">75% Complete</p>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Complete Tasks</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">📈</div>
+                            <div class="card-title">Progress Tracking</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="color: white; margin-bottom: 0.5rem;">Current Placement: WebDev Corp</h4>
+                                <p style="margin-bottom: 1rem;">Week 8 of 12 • Frontend Development Track</p>
+                                
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                        <span>Technical Skills</span>
+                                        <span>4.2/5</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 84%;"></div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                        <span>Communication</span>
+                                        <span>4.5/5</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 90%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary" onclick="openModal()">View Full Report</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🎓</div>
+                            <div class="card-title">Career Pathways</div>
+                        </div>
+                        <div class="card-content">
+                            <p style="margin-bottom: 1rem;">Based on your placement performance and interests:</p>
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">🌟 Recommended Next Steps</h4>
+                                <ul style="color: rgba(255,255,255,0.9); margin-left: 1rem;">
+                                    <li>Level 6 Software Development Apprenticeship</li>
+                                    <li>Junior Frontend Developer Role</li>
+                                    <li>Further specialization in React/Vue</li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-primary">Explore Opportunities</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employer Dashboard -->
+            <div id="employer-content" class="content-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">24</span>
+                        <div class="stat-label">Available Students</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">6</span>
+                        <div class="stat-label">Active Placements</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">89%</span>
+                        <div class="stat-label">Completion Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4</span>
+                        <div class="stat-label">Hired Post-Placement</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">👥</div>
+                            <div class="card-title">Student Matches</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="placement-card">
+                                <div class="placement-header">
+                                    <div class="company-name">Sarah Mitchell</div>
+                                    <div class="match-score">95% Match</div>
+                                </div>
+                                <div class="placement-details">
+                                    Digital T-Level • Frontend Focus • Available Now
+                                </div>
+                                <div class="placement-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Git</span>
+                                </div>
+                                <button class="btn btn-primary">View Profile</button>
+                            </div>
+                            
+                            <div class="placement-card">
+                                <div class="placement-header">
+                                    <div class="company-name">James Rodriguez</div>
+                                    <div class="match-score">92% Match</div>
+                                </div>
+                                <div class="placement-details">
+                                    Digital T-Level • Full-stack • Available in 2 weeks
+                                </div>
+                                <div class="placement-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Django</span>
+                                    <span class="tag">SQL</span>
+                                </div>
+                                <button class="btn btn-secondary">Contact Student</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">📊</div>
+                            <div class="card-title">Placement Management</div>
+                        </div>
+                        <div class="card-content">
+                            <h4 style="color: white; margin-bottom: 1rem;">Current Placements</h4>
+                            <div style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <strong style="color: white;">Emma Thompson</strong>
+                                    <span style="color: var(--secondary);">Week 6/12</span>
+                                </div>
+                                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Frontend Development Track</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" style="width: 100%;">Manage All Placements</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">💬</div>
+                            <div class="card-title">Communication Hub</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="color: white; margin-bottom: 0.5rem;">Recent Messages</h4>
+                                <div style="padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 0.5rem;">
+                                    <div style="font-weight: 600; color: white;">Emma Thompson</div>
+                                    <div style="font-size: 0.9rem;">Weekly update: Completed React component task</div>
+                                </div>
+                                <div style="padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                                    <div style="font-weight: 600; color: white;">ADA Placement Team</div>
+                                    <div style="font-size: 0.9rem;">Mid-placement review scheduled for next week</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary">Open Messages</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🎯</div>
+                            <div class="card-title">Recruitment Pipeline</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">Post-Placement Hiring</h4>
+                                <p style="margin-bottom: 1rem;">3 students eligible for permanent roles</p>
+                                <div style="margin-bottom: 0.5rem;">
+                                    <span>Alex Chen - Software Developer</span>
+                                    <button class="btn btn-primary" style="float: right; padding: 0.25rem 0.75rem; font-size: 0.8rem;">Make Offer</button>
+                                </div>
+                                <div style="clear: both; margin-bottom: 1rem;"></div>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%;">View All Candidates</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Dashboard -->
+            <div id="staff-content" class="content-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">156</span>
+                        <div class="stat-label">Active Students</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">45</span>
+                        <div class="stat-label">Partner Employers</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">92%</span>
+                        <div class="stat-label">Placement Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">67%</span>
+                        <div class="stat-label">Job Conversion Rate</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">📈</div>
+                            <div class="card-title">Platform Analytics</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="color: white; margin-bottom: 0.5rem;">This Month's Performance</h4>
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                        <span>New Placements</span>
+                                        <span style="color: var(--secondary); font-weight: 600;">28</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                        <span>Successful Matches</span>
+                                        <span style="color: var(--secondary); font-weight: 600;">26</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                        <span>Avg. Match Score</span>
+                                        <span style="color: var(--secondary); font-weight: 600;">87%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">View Full Analytics</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">⚠️</div>
+                            <div class="card-title">Alerts & Actions</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <div style="padding: 0.75rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; margin-bottom: 0.5rem;">
+                                    <div style="font-weight: 600; color: var(--danger);">Placement at Risk</div>
+                                    <div style="font-size: 0.9rem;">Student Alex Johnson - Performance concerns at TechCorp</div>
+                                </div>
+                                <div style="padding: 0.75rem; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; margin-bottom: 0.5rem;">
+                                    <div style="font-weight: 600; color: var(--accent);">Review Due</div>
+                                    <div style="font-size: 0.9rem;">Mid-placement review for 8 students this week</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary">Manage Alerts</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🏢</div>
+                            <div class="card-title">Employer Relations</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="color: white; margin-bottom: 0.5rem;">Top Performing Partners</h4>
+                                <div style="margin-bottom: 0.5rem;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>TechFlow Digital</span>
+                                        <span style="color: var(--secondary);">98% satisfaction</span>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 0.5rem;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>CloudTech Solutions</span>
+                                        <span style="color: var(--secondary);">95% satisfaction</span>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>DataDrive Analytics</span>
+                                        <span style="color: var(--secondary);">93% satisfaction</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Manage Partners</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">🛠️</div>
+                            <div class="card-title">Platform Management</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="margin-bottom: 1rem;">
+                                <h4 style="color: white; margin-bottom: 1rem;">Quick Actions</h4>
+                                <button class="btn btn-secondary" style="width: 100%; margin-bottom: 0.5rem;">Add New Employer</button>
+                                <button class="btn btn-secondary" style="width: 100%; margin-bottom: 0.5rem;">Bulk Student Import</button>
+                                <button class="btn btn-secondary" style="width: 100%; margin-bottom: 0.5rem;">Generate Reports</button>
+                                <button class="btn btn-primary" style="width: 100%;">System Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Profile Panel -->
+    <div id="profile-overlay" class="profile-overlay" onclick="closeProfile()"></div>
+    <div id="profile-panel" class="profile-panel">
+        <div class="profile-header">
+            <button class="profile-close" onclick="closeProfile()">&times;</button>
+            <div class="profile-avatar">JS</div>
+            <div class="profile-name">Jamie Sullivan</div>
+            <div class="profile-course">Digital T-Level • Year 2 • Manchester Campus</div>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="overview">📊 Overview</button>
+                <button class="profile-tab" data-tab="academic">🎓 Academic</button>
+                <button class="profile-tab" data-tab="skills">💪 Skills</button>
+                <button class="profile-tab" data-tab="documents">📄 Documents</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div id="overview-tab" class="profile-tab-content active">
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        👤 Personal Information
+                    </div>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-info">
+                                <div style="font-weight: 600; color: var(--text);">Email</div>
+                                <div style="color: var(--text-light);">j.sullivan@ada.ac.uk</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-info">
+                                <div style="font-weight: 600; color: var(--text);">Phone</div>
+                                <div style="color: var(--text-light);">+44 7700 900123</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-info">
+                                <div style="font-weight: 600; color: var(--text);">Location</div>
+                                <div style="color: var(--text-light);">Manchester, UK</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🎂</div>
+                            <div class="contact-info">
+                                <div style="font-weight: 600; color: var(--text);">Age</div>
+                                <div style="color: var(--text-light);">18 years old</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        🎯 Career Aspirations
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-item-label">Primary Goal</div>
+                        <div class="profile-item-value">Full-Stack Software Developer specializing in web applications</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-item-label">Industry Preference</div>
+                        <div class="profile-item-value">Fintech, E-commerce, or SaaS companies</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-item-label">Long-term Vision</div>
+                        <div class="profile-item-value">Technical Lead role within 5 years, potentially starting own tech consultancy</div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        ❤️ Interests & Hobbies
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <span class="interest-tag">💻 Web Development</span>
+                        <span class="interest-tag">🎮 Game Development</span>
+                        <span class="interest-tag">🤖 AI/Machine Learning</span>
+                        <span class="interest-tag">🎵 Music Production</span>
+                        <span class="interest-tag">📚 Tech Podcasts</span>
+                        <span class="interest-tag">🏃‍♂️ Running</span>
+                        <span class="interest-tag">♟️ Chess</span>
+                        <span class="interest-tag">🎨 Digital Art</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Tab -->
+            <div id="academic-tab" class="profile-tab-content">
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        📊 T-Level Predicted Grades
+                    </div>
+                    <div class="grade-card">
+                        <div class="grade-subject">Digital Production, Design & Development</div>
+                        <div class="grade-predicted">Distinction*</div>
+                        <div class="grade-current">Current: Distinction</div>
+                    </div>
+                    <div class="grade-card" style="background: linear-gradient(45deg, var(--secondary), #059669);">
+                        <div class="grade-subject">Core Mathematics</div>
+                        <div class="grade-predicted">A</div>
+                        <div class="grade-current">Current: B+</div>
+                    </div>
+                    <div class="grade-card" style="background: linear-gradient(45deg, var(--accent), #f97316);">
+                        <div class="grade-subject">Core English</div>
+                        <div class="grade-predicted">B</div>
+                        <div class="grade-current">Current: B</div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        🏆 Achievements & Certifications
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <div class="achievement-badge">🥇 Student of the Month - March 2025</div>
+                        <div class="achievement-badge">💻 JavaScript Fundamentals Certified</div>
+                        <div class="achievement-badge">🎨 Responsive Web Design Certified</div>
+                        <div class="achievement-badge">☁️ AWS Cloud Practitioner</div>
+                        <div class="achievement-badge">📱 React Development Specialist</div>
+                        <div class="achievement-badge">🏅 Hackathon Winner - Manchester Tech 2024</div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        📈 Academic Progress
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-item-label">Overall Progress</div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                            <div class="progress-bar" style="flex: 1; margin: 0;">
+                                <div class="progress-fill" style="width: 78%;"></div>
+                            </div>
+                            <span style="color: var(--secondary); font-weight: 600;">78%</span>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-item-label">Attendance Rate</div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                            <div class="progress-bar" style="flex: 1; margin: 0;">
+                                <div class="progress-fill" style="width: 96%;"></div>
+                            </div>
+                            <span style="color: var(--secondary); font-weight: 600;">96%</span>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-item-label">Assignment Completion</div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+                            <div class="progress-bar" style="flex: 1; margin: 0;">
+                                <div class="progress-fill" style="width: 94%;"></div>
+                            </div>
+                            <span style="color: var(--secondary); font-weight: 600;">94%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Tab -->
+            <div id="skills-tab" class="profile-tab-content">
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        💻 Technical Skills
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">React</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML/CSS</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 92%;"></div>
+                        </div>
+                        <span class="skill-percentage">92%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Node.js</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 65%;"></div>
+                        </div>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">SQL</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Git/GitHub</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        🤝 Soft Skills
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Communication</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Problem Solving</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 87%;"></div>
+                        </div>
+                        <span class="skill-percentage">87%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Teamwork</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 93%;"></div>
+                        </div>
+                        <span class="skill-percentage">93%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Time Management</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 82%;"></div>
+                        </div>
+                        <span class="skill-percentage">82%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Leadership</span>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 78%;"></div>
+                        </div>
+                        <span class="skill-percentage">78%</span>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        🛠️ Tools & Technologies
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <span class="interest-tag">VS Code</span>
+                        <span class="interest-tag">Figma</span>
+                        <span class="interest-tag">Adobe Creative Suite</span>
+                        <span class="interest-tag">Docker</span>
+                        <span class="interest-tag">AWS</span>
+                        <span class="interest-tag">MongoDB</span>
+                        <span class="interest-tag">PostgreSQL</span>
+                        <span class="interest-tag">Postman</span>
+                        <span class="interest-tag">Slack</span>
+                        <span class="interest-tag">Trello</span>
+                        <span class="interest-tag">Webpack</span>
+                        <span class="interest-tag">Jest</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documents Tab -->
+            <div id="documents-tab" class="profile-tab-content">
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        📄 Documents & Portfolio
+                    </div>
+                    
+                    <div class="document-item" onclick="downloadDocument('cv')">
+                        <div class="document-icon">📄</div>
+                        <div class="document-info">
+                            <div class="document-name">CV - Jamie Sullivan</div>
+                            <div class="document-meta">Updated: 15 Mar 2025 • PDF • 2.1 MB</div>
+                        </div>
+                        <div style="color: var(--primary);">📥</div>
+                    </div>
+
+                    <div class="document-item" onclick="downloadDocument('portfolio')">
+                        <div class="document-icon">🎨</div>
+                        <div class="document-info">
+                            <div class="document-name">Digital Portfolio</div>
+                            <div class="document-meta">Live Site • Updated: 20 Mar 2025</div>
+                        </div>
+                        <div style="color: var(--primary);">🔗</div>
+                    </div>
+
+                    <div class="document-item" onclick="downloadDocument('transcript')">
+                        <div class="document-icon">🎓</div>
+                        <div class="document-info">
+                            <div class="document-name">Academic Transcript</div>
+                            <div class="document-meta">Year 1-2 • PDF • 1.3 MB</div>
+                        </div>
+                        <div style="color: var(--primary);">📥</div>
+                    </div>
+
+                    <div class="document-item" onclick="downloadDocument('certificates')">
+                        <div class="document-icon">🏆</div>
+                        <div class="document-info">
+                            <div class="document-name">Certifications Bundle</div>
+                            <div class="document-meta">AWS, JavaScript, React • ZIP • 5.2 MB</div>
+                        </div>
+                        <div style="color: var(--primary);">📥</div>
+                    </div>
+
+                    <div class="document-item" onclick="downloadDocument('projects')">
+                        <div class="document-icon">💻</div>
+                        <div class="document-info">
+                            <div class="document-name">GitHub Projects</div>
+                            <div class="document-meta">15 repositories • Public profile</div>
+                        </div>
+                        <div style="color: var(--primary);">🔗</div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        📚 References
+                    </div>
+                    
+                    <div class="profile-item">
+                        <div class="profile-item-label">Academic Reference</div>
+                        <div class="profile-item-value">
+                            <strong>Dr. Sarah Mitchell</strong><br>
+                            Senior Lecturer, Digital Technologies<br>
+                            ADA Manchester • s.mitchell@ada.ac.uk<br>
+                            +44 161 234 5678
+                        </div>
+                    </div>
+
+                    <div class="profile-item">
+                        <div class="profile-item-label">Industry Reference</div>
+                        <div class="profile-item-value">
+                            <strong>Mark Thompson</strong><br>
+                            Senior Developer, TechFlow Digital<br>
+                            Previous Placement Supervisor<br>
+                            m.thompson@techflow.co.uk • +44 161 987 6543
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        ⚙️ Privacy Settings
+                    </div>
+                    
+                    <div class="profile-item">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div class="profile-item-label">Profile Visibility</div>
+                                <div class="profile-item-value">Visible to placement partners</div>
+                            </div>
+                            <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Edit</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-item">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div class="profile-item-label">Contact Preferences</div>
+                                <div class="profile-item-value">Email & platform notifications</div>
+                            </div>
+                            <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 style="color: var(--dark); margin-bottom: 1rem;">Placement Progress Report</h2>
+            <div style="color: var(--text);">
+                <h3>Emma Thompson - WebDev Corp</h3>
+                <p><strong>Placement Period:</strong> Week 8 of 12</p>
+                <p><strong>Track:</strong> Frontend Development</p>
+                
+                <h4 style="margin-top: 1.5rem; color: var(--primary);">Performance Metrics</h4>
+                <ul>
+                    <li>Technical Skills: 4.2/5 - Excellent progress with React components</li>
+                    <li>Communication: 4.5/5 - Proactive in team meetings</li>
+                    <li>Problem Solving: 4.0/5 - Shows strong analytical thinking</li>
+                    <li>Initiative: 4.3/5 - Regularly suggests improvements</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem; color: var(--primary);">Recent Achievements</h4>
+                <ul>
+                    <li>Successfully implemented responsive design for client project</li>
+                    <li>Led presentation on accessibility best practices</li>
+                    <li>Completed advanced JavaScript certification</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem; color: var(--primary);">Next Steps</h4>
+                <ul>
+                    <li>Begin work on final capstone project</li>
+                    <li>Shadow senior developer for backend exposure</li>
+                    <li>Prepare for potential permanent role discussion</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
