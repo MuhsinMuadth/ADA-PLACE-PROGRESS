@@ -91,6 +91,52 @@ This will:
 - Enable hot reloading (changes will be reflected immediately)
 - Show any compilation errors in the terminal and browser
 
+### ⚠️ Important: Server Management
+
+**The development server runs continuously in the background!**
+
+The server does **NOT** automatically stop when you:
+- Close the browser tab
+- Close the browser window
+- Switch to other applications
+
+### How to Stop the Development Server
+
+**Method 1: Using the Terminal (Recommended)**
+In the terminal where you ran `npm start`, press:
+```bash
+Ctrl + C   # (Windows/Linux)
+Cmd + C    # (macOS)
+```
+
+**Method 2: Kill the Process**
+If you lost the terminal or it's not responding:
+```bash
+# Find and kill the process on port 3000
+lsof -ti:3000 | xargs kill -9
+
+# On Windows (Command Prompt)
+netstat -ano | findstr :3000
+taskkill /PID <PID_NUMBER> /F
+```
+
+**Method 3: Kill All Node Processes (Use Carefully)**
+```bash
+# macOS/Linux - kills ALL Node.js processes
+pkill -f node
+
+# Windows
+taskkill /im node.exe /f
+```
+
+### Checking if Server is Running
+
+```bash
+# Check what's running on port 3000
+lsof -i:3000        # macOS/Linux
+netstat -ano | findstr :3000   # Windows
+```
+
 ### Production Build
 
 To create a production-ready build:
