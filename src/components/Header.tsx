@@ -6,9 +6,10 @@ interface HeaderProps {
   currentPage: Page;
   onNavigate: (page: Page) => void;
   onOpenProfile: () => void;
+  onLogout: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenProfile }) => {
+const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenProfile, onLogout }) => {
   return (
     <header className="header">
       <div className="container">
@@ -51,6 +52,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenProfile 
           <div className="user-menu">
             <div className="notification-badge">🔔</div>
             <div className="user-avatar" onClick={onOpenProfile}>JS</div>
+            <button 
+              className="logout-btn" 
+              onClick={onLogout}
+              title="Logout"
+            >
+              ↪️
+            </button>
           </div>
         </nav>
       </div>

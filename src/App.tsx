@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
+import Login from './components/Login';
 import Dashboard from './pages/Dashboard';
 import Placements from './pages/Placements';
 import Progress from './pages/Progress';
@@ -9,10 +10,64 @@ import Modal from './components/Modal';
 
 type Page = 'dashboard' | 'placements' | 'progress' | 'analytics';
 
+interface User {
+  email: string;
+  name: string;
+  role: 'student' | 'employer' | 'staff';
+}
+
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard');
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [loginError, setLoginError] = useState<string>('');
+
+  // Demo credentials for the prototype
+  const validCredentials = {
+    'jamie.sullivan@ada.ac.uk': {
+      password: 'student123',
+      user: {
+        email: 'jamie.sullivan@ada.ac.uk',
+        name: 'Jamie Sullivan',
+        role: 'student' as const
+      }
+    },
+    'admin@ada.ac.uk': {
+      password: 'admin123',
+      user: {
+        email: 'admin@ada.ac.uk',
+        name: 'Admin User',
+        role: 'staff' as const
+      }
+    },
+    'employer@company.com': {
+      password: 'employer123',
+      user: {
+        email: 'employer@company.com',
+        name: 'Employer User',
+        role: 'employer' as const
+      }
+    }
+  };
+
+  const handleLogin = (email: string, password: string) => {
+    const credentials = validCredentials[email as keyof typeof validCredentials];
+    
+    if (credentials && credentials.password === password) {
+      setUser(credentials.user);
+      setLoginError('');
+    } else {
+      setLoginError('Invalid email or password. Please try again or use the demo account.');
+    }
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setCurrentPage('dashboard');
+    setIsProfileOpen(false);
+    setIsModalOpen(false);
+  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -29,12 +84,18 @@ function App() {
     }
   };
 
+  // Show login screen if user is not authenticated
+  if (!user) {
+    return <Login onLogin={handleLogin} error={loginError} />;
+  }
+
   return (
     <div className="App">
       <Header 
         currentPage={currentPage} 
         onNavigate={setCurrentPage}
         onOpenProfile={() => setIsProfileOpen(true)}
+        onLogout={handleLogout}
       />
       
       <main className="main">
