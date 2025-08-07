@@ -51,19 +51,19 @@ const Dashboard: React.FC<DashboardProps> = ({ onOpenModal }) => {
       <div className={`content-section ${activeUserType === 'student' ? 'active' : ''}`}>
         <div className="stats-grid">
           <div className="stat-card">
-            <span className="stat-number">85%</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>85%</span>
             <div className="stat-label">Profile Complete</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">12</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>12</span>
             <div className="stat-label">Placement Matches</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">3</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>3</span>
             <div className="stat-label">Applications Sent</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">1</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>1</span>
             <div className="stat-label">Interview Scheduled</div>
           </div>
         </div>
@@ -196,19 +196,19 @@ const Dashboard: React.FC<DashboardProps> = ({ onOpenModal }) => {
       <div className={`content-section ${activeUserType === 'employer' ? 'active' : ''}`}>
         <div className="stats-grid">
           <div className="stat-card">
-            <span className="stat-number">24</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>24</span>
             <div className="stat-label">Available Students</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">6</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>6</span>
             <div className="stat-label">Active Placements</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">89%</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>89%</span>
             <div className="stat-label">Completion Rate</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">4</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>4</span>
             <div className="stat-label">Hired Post-Placement</div>
           </div>
         </div>
@@ -321,19 +321,19 @@ const Dashboard: React.FC<DashboardProps> = ({ onOpenModal }) => {
       <div className={`content-section ${activeUserType === 'staff' ? 'active' : ''}`}>
         <div className="stats-grid">
           <div className="stat-card">
-            <span className="stat-number">156</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>156</span>
             <div className="stat-label">Active Students</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">45</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>45</span>
             <div className="stat-label">Partner Employers</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">92%</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>92%</span>
             <div className="stat-label">Placement Success Rate</div>
           </div>
           <div className="stat-card">
-            <span className="stat-number">67%</span>
+            <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>67%</span>
             <div className="stat-label">Job Conversion Rate</div>
           </div>
         </div>

@@ -1297,6 +1297,24 @@ body {
 .card:nth-child(3) { animation-delay: 0.2s; }
 .card:nth-child(4) { animation-delay: 0.3s; }
 
+/* Placement specific styles */
+.placement-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.placement-search-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.placement-search-input::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    opacity: 1;
+}
+
+.placement-search-input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
 /* Content specific to user types */
 .content-section {
     display: none;

@@ -14,19 +14,19 @@ const Progress: React.FC<ProgressProps> = ({ onOpenModal }) => {
 
       <div className="stats-grid">
         <div className="stat-card">
-          <span className="stat-number">8/12</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>8/12</span>
           <div className="stat-label">Weeks Completed</div>
         </div>
         <div className="stat-card">
-          <span className="stat-number">4.2/5</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>4.2/5</span>
           <div className="stat-label">Average Rating</div>
         </div>
         <div className="stat-card">
-          <span className="stat-number">15</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>15</span>
           <div className="stat-label">Skills Developed</div>
         </div>
         <div className="stat-card">
-          <span className="stat-number">3</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>3</span>
           <div className="stat-label">Certifications Earned</div>
         </div>
       </div>

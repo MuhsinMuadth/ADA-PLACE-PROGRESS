@@ -10,19 +10,19 @@ const Analytics: React.FC = () => {
 
       <div className="stats-grid">
         <div className="stat-card">
-          <span className="stat-number">92%</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>92%</span>
           <div className="stat-label">Placement Success Rate</div>
         </div>
         <div className="stat-card">
-          <span className="stat-number">4.3/5</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>4.3/5</span>
           <div className="stat-label">Average Student Rating</div>
         </div>
         <div className="stat-card">
-          <span className="stat-number">67%</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>67%</span>
           <div className="stat-label">Job Conversion Rate</div>
         </div>
         <div className="stat-card">
-          <span className="stat-number">156</span>
+          <span className="stat-number" style={{color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>156</span>
           <div className="stat-label">Active Students</div>
         </div>
       </div>
