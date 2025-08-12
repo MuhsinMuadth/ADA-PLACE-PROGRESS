@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Page = 'dashboard' | 'placements' | 'progress' | 'analytics';
+type Page = 'dashboard' | 'placements' | 'placement-detail' | 'progress' | 'analytics';
 
 interface HeaderProps {
   currentPage: Page;
@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenProfile,
             </li>
             <li>
               <button 
-                className={`nav-link ${currentPage === 'placements' ? 'active' : ''}`}
+                className={`nav-link ${currentPage === 'placements' || currentPage === 'placement-detail' ? 'active' : ''}`}
                 onClick={() => onNavigate('placements')}
               >
                 Placements

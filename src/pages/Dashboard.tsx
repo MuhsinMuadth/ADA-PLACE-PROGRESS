@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 interface DashboardProps {
   onOpenModal: () => void;
+  onViewPlacementDetail: (placementId: number) => void;
 }
 
 type UserType = 'student' | 'employer' | 'staff';
 
-const Dashboard: React.FC<DashboardProps> = ({ onOpenModal }) => {
+const Dashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetail }) => {
   const [activeUserType, setActiveUserType] = useState<UserType>('student');
 
   const handlePlacementCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -72,39 +73,124 @@ const Dashboard: React.FC<DashboardProps> = ({ onOpenModal }) => {
           <div className="card">
             <div className="card-header">
               <div className="card-icon">🎯</div>
-              <div className="card-title">Recommended Placements</div>
+              <div className="card-title">Recommended For You</div>
+              <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>Based on your T-Level profile and interests</div>
             </div>
             <div className="card-content">
-              <div className="placement-card" onClick={handlePlacementCardClick}>
-                <div className="placement-header">
-                  <div className="company-name">TechFlow Digital</div>
-                  <div className="match-score">92% Match</div>
+              <div className="placement-card" onClick={handlePlacementCardClick} style={{ marginBottom: '1rem', position: 'relative' }}>
+                {/* Featured badge */}
+                <div style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                  background: 'linear-gradient(45deg, var(--accent), #f97316)',
+                  color: 'white',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '0 0 12px 16px',
+                  fontSize: '0.75rem',
+                  fontWeight: '600',
+                  zIndex: 2
+                }}>
+                  ⭐ Top Match
                 </div>
-                <div className="placement-details">
-                  Full-stack Development • Manchester • 6 months
+                
+                <div style={{ paddingTop: '1rem' }}>
+                  <div className="placement-header" style={{ marginBottom: '0.75rem' }}>
+                    <div>
+                      <div className="company-name" style={{ fontSize: '1.1rem', fontWeight: '700' }}>TechFlow Digital</div>
+                      <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.95rem' }}>Full-Stack Developer</div>
+                    </div>
+                    <div className="match-score" style={{ 
+                      background: 'linear-gradient(45deg, var(--secondary), #059669)',
+                      fontSize: '0.9rem', 
+                      padding: '0.4rem 0.8rem' 
+                    }}>
+                      95% Match
+                    </div>
+                  </div>
+                  
+                  <div style={{ marginBottom: '0.75rem', fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>
+                    Build cutting-edge web applications with React and Node.js in a fast-growing startup environment.
+                  </div>
+                  
+                  <div className="placement-details" style={{ marginBottom: '0.75rem', fontSize: '0.85rem' }}>
+                    📍 Manchester • ⏱️ 6 months • 💰 £18,000 • 🏠 Remote/Hybrid
+                  </div>
+                  
+                  <div className="placement-tags" style={{ marginBottom: '1rem' }}>
+                    <span className="tag">React</span>
+                    <span className="tag">Node.js</span>
+                    <span className="tag">TypeScript</span>
+                    <span className="tag">Remote</span>
+                  </div>
+                  
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <button className="btn btn-primary" style={{ flex: 1 }}>🚀 Apply Now</button>
+                    <button 
+                      className="btn btn-secondary" 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onViewPlacementDetail(1);
+                      }}
+                    >
+                      View Details
+                    </button>
+                  </div>
                 </div>
-                <div className="placement-tags">
-                  <span className="tag">React</span>
-                  <span className="tag">Node.js</span>
-                  <span className="tag">Remote</span>
-                </div>
-                <button className="btn btn-primary">Apply Now</button>
               </div>
               
-              <div className="placement-card" onClick={handlePlacementCardClick}>
-                <div className="placement-header">
-                  <div className="company-name">CloudTech Solutions</div>
-                  <div className="match-score">88% Match</div>
+              <div className="placement-card" onClick={handlePlacementCardClick} style={{ position: 'relative' }}>
+                <div className="placement-header" style={{ marginBottom: '0.75rem' }}>
+                  <div>
+                    <div className="company-name" style={{ fontSize: '1.1rem', fontWeight: '700' }}>HealthTech Solutions</div>
+                    <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.95rem' }}>Digital Health Developer</div>
+                  </div>
+                  <div className="match-score" style={{ 
+                    background: 'linear-gradient(45deg, var(--accent), #f97316)',
+                    fontSize: '0.9rem', 
+                    padding: '0.4rem 0.8rem' 
+                  }}>
+                    88% Match
+                  </div>
                 </div>
-                <div className="placement-details">
-                  Cloud Infrastructure • Hybrid • 4 months
+                
+                <div style={{ marginBottom: '0.75rem', fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>
+                  Help digitize healthcare processes to improve patient outcomes using Python and modern frameworks.
                 </div>
-                <div className="placement-tags">
-                  <span className="tag">AWS</span>
-                  <span className="tag">DevOps</span>
+                
+                <div className="placement-details" style={{ marginBottom: '0.75rem', fontSize: '0.85rem' }}>
+                  📍 Birmingham • ⏱️ 8 months • 💰 £19,500 • 🏢 Hybrid
+                </div>
+                
+                <div className="placement-tags" style={{ marginBottom: '1rem' }}>
+                  <span className="tag">Python</span>
+                  <span className="tag">Django</span>
+                  <span className="tag">Healthcare</span>
                   <span className="tag">Hybrid</span>
                 </div>
-                <button className="btn btn-secondary">Learn More</button>
+                
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <button className="btn btn-secondary" style={{ flex: 1 }}>Learn More</button>
+                  <button 
+                    className="btn btn-secondary" 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onViewPlacementDetail(2);
+                    }}
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+              
+              {/* Show More Button */}
+              <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <button 
+                  className="btn btn-primary" 
+                  style={{ padding: '0.75rem 2rem' }}
+                >
+                  View All Placements →
+                </button>
               </div>
             </div>
           </div>

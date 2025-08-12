@@ -3,12 +3,14 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Dashboard from './pages/Dashboard';
 import Placements from './pages/Placements';
+import PlacementDetail from './pages/PlacementDetail';
 import Progress from './pages/Progress';
 import Analytics from './pages/Analytics';
 import ProfilePanel from './components/ProfilePanel';
 import Modal from './components/Modal';
+import ApplicationModal from './components/ApplicationModal';
 
-type Page = 'dashboard' | 'placements' | 'progress' | 'analytics';
+type Page = 'dashboard' | 'placements' | 'placement-detail' | 'progress' | 'analytics';
 
 interface User {
   email: string;
@@ -20,6 +22,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard');
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isApplicationModalOpen, setIsApplicationModalOpen] = useState(false);
+  const [selectedPlacementId, setSelectedPlacementId] = useState<number>(1);
   const [user, setUser] = useState<User | null>(null);
   const [loginError, setLoginError] = useState<string>('');
 
@@ -67,20 +71,43 @@ function App() {
     setCurrentPage('dashboard');
     setIsProfileOpen(false);
     setIsModalOpen(false);
+    setIsApplicationModalOpen(false);
+  };
+
+  const handleViewPlacementDetail = (placementId: number) => {
+    setSelectedPlacementId(placementId);
+    setCurrentPage('placement-detail');
+  };
+
+  const handleOpenApplicationModal = (placementId: number) => {
+    setSelectedPlacementId(placementId);
+    setIsApplicationModalOpen(true);
+  };
+
+  const handleBackToPlacementsList = () => {
+    setCurrentPage('placements');
   };
 
   const renderPage = () => {
     switch (currentPage) {
       case 'dashboard':
-        return <Dashboard onOpenModal={() => setIsModalOpen(true)} />;
+        return <Dashboard onOpenModal={() => setIsModalOpen(true)} onViewPlacementDetail={handleViewPlacementDetail} />;
       case 'placements':
-        return <Placements />;
+        return <Placements onViewPlacementDetail={handleViewPlacementDetail} />;
+      case 'placement-detail':
+        return (
+          <PlacementDetail 
+            placementId={selectedPlacementId}
+            onBack={handleBackToPlacementsList}
+            onOpenApplicationModal={handleOpenApplicationModal}
+          />
+        );
       case 'progress':
         return <Progress onOpenModal={() => setIsModalOpen(true)} />;
       case 'analytics':
         return <Analytics />;
       default:
-        return <Dashboard onOpenModal={() => setIsModalOpen(true)} />;
+        return <Dashboard onOpenModal={() => setIsModalOpen(true)} onViewPlacementDetail={handleViewPlacementDetail} />;
     }
   };
 
@@ -113,6 +140,14 @@ function App() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         currentPage={currentPage}
+      />
+
+      <ApplicationModal 
+        isOpen={isApplicationModalOpen}
+        onClose={() => setIsApplicationModalOpen(false)}
+        placementId={selectedPlacementId}
+        placementTitle="Full-Stack Developer"
+        companyName="TechFlow Digital"
       />
     </div>
   );

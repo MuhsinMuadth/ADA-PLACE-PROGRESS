@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const Placements: React.FC = () => {
+interface PlacementsProps {
+  onViewPlacementDetail: (placementId: number) => void;
+}
+
+const Placements: React.FC<PlacementsProps> = ({ onViewPlacementDetail }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSector, setSelectedSector] = useState('all');
@@ -346,6 +350,16 @@ const Placements: React.FC = () => {
             <div style={{display: 'flex', gap: '0.75rem'}}>
               <button className="btn btn-primary" style={{flex: 1, padding: '0.75rem', fontWeight: '600'}}>
                 Apply Now
+              </button>
+              <button 
+                className="btn btn-secondary" 
+                style={{padding: '0.75rem 1rem', fontWeight: '600'}}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onViewPlacementDetail(placement.id);
+                }}
+              >
+                View Details
               </button>
               <button style={{
                 padding: '0.75rem 1rem',
