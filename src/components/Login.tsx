@@ -22,9 +22,21 @@ const Login: React.FC<LoginProps> = ({ onLogin, error }) => {
     }, 1000);
   };
 
-  const fillDemoCredentials = () => {
-    setEmail('jamie.sullivan@ada.ac.uk');
-    setPassword('student123');
+  const fillDemoCredentials = (role: 'student' | 'employer' | 'staff') => {
+    switch (role) {
+      case 'student':
+        setEmail('jamie.sullivan@ada.ac.uk');
+        setPassword('student123');
+        break;
+      case 'employer':
+        setEmail('employer@company.com');
+        setPassword('employer123');
+        break;
+      case 'staff':
+        setEmail('admin@ada.ac.uk');
+        setPassword('admin123');
+        break;
+    }
   };
 
   return (
@@ -106,15 +118,31 @@ const Login: React.FC<LoginProps> = ({ onLogin, error }) => {
               <div className="demo-divider">
                 <span>Demo Access</span>
               </div>
-              <button
-                type="button"
-                className="demo-btn"
-                onClick={fillDemoCredentials}
-              >
-                👨‍🎓 Use Student Demo Account
-              </button>
+              <div className="demo-buttons">
+                <button
+                  type="button"
+                  className="demo-btn"
+                  onClick={() => fillDemoCredentials('student')}
+                >
+                  👨‍🎓 Student Demo
+                </button>
+                <button
+                  type="button"
+                  className="demo-btn"
+                  onClick={() => fillDemoCredentials('employer')}
+                >
+                  🏢 Employer Demo
+                </button>
+                <button
+                  type="button"
+                  className="demo-btn"
+                  onClick={() => fillDemoCredentials('staff')}
+                >
+                  👩‍💼 Staff Demo
+                </button>
+              </div>
               <p className="demo-note">
-                Click above to auto-fill Jamie Sullivan's student credentials
+                Click any button above to auto-fill demo credentials for different user roles
               </p>
             </div>
 

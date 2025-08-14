@@ -33,7 +33,9 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
     relevantExperience: '',
     technicalSkills: ['JavaScript', 'React', 'HTML/CSS'],
     portfolioUrl: 'https://github.com/jamiesullivan',
+    githubUrl: 'https://github.com/jamiesullivan',
     cvFile: null as File | null,
+    hasExistingCV: true, // CV already uploaded during account creation
     
     // Motivation
     whyInterested: '',
@@ -83,7 +85,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
       case 1:
         return (
           <div>
-            <h3 style={{ color: 'var(--dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <h3 style={{ color: 'var(--dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               👤 Personal Information
             </h3>
             
@@ -165,7 +167,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
       case 2:
         return (
           <div>
-            <h3 style={{ color: 'var(--dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <h3 style={{ color: 'var(--dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               🎓 Academic Information
             </h3>
             
@@ -259,7 +261,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
       case 3:
         return (
           <div>
-            <h3 style={{ color: 'var(--dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <h3 style={{ color: 'var(--dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               💼 Experience & Portfolio
             </h3>
             
@@ -343,13 +345,13 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
 
             <div style={{ marginBottom: '1rem' }}>
               <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>
-                Portfolio/GitHub URL
+                Portfolio URL
               </label>
               <input
                 type="url"
                 value={formData.portfolioUrl}
                 onChange={(e) => updateFormData('portfolioUrl', e.target.value)}
-                placeholder="https://github.com/yourname or your portfolio URL"
+                placeholder="https://yourportfolio.com"
                 style={{
                   width: '100%',
                   padding: '0.75rem',
@@ -362,12 +364,35 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
 
             <div style={{ marginBottom: '1rem' }}>
               <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>
-                Upload CV *
+                GitHub Profile
+              </label>
+              <input
+                type="url"
+                value={formData.githubUrl}
+                onChange={(e) => updateFormData('githubUrl', e.target.value)}
+                placeholder="https://github.com/yourusername"
+                style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  border: '2px solid rgba(0,0,0,0.1)',
+                  borderRadius: '8px',
+                  fontSize: '1rem'
+                }}
+              />
+              <div style={{ fontSize: '0.85rem', color: 'rgba(0,0,0,0.6)', marginTop: '0.5rem' }}>
+                💡 Link your GitHub profile to showcase your coding projects and contributions
+              </div>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: 'var(--dark)' }}>
+                CV Document
               </label>
               <div style={{
-                border: '2px dashed rgba(0,0,0,0.2)',
-                borderRadius: '8px',
-                padding: '2rem',
+                border: formData.hasExistingCV && !formData.cvFile ? '2px solid rgba(16,185,129,0.4)' : '2px dashed rgba(0,0,0,0.2)',
+                backgroundColor: formData.hasExistingCV && !formData.cvFile ? 'rgba(16,185,129,0.08)' : 'transparent',
+                borderRadius: '12px',
+                padding: '1.5rem',
                 textAlign: 'center',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
@@ -387,7 +412,25 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
                         {formData.cvFile.name}
                       </div>
                       <div style={{ fontSize: '0.9rem', color: 'rgba(0,0,0,0.6)' }}>
-                        Click to replace
+                        New CV selected - Click to change again
+                      </div>
+                    </div>
+                  ) : formData.hasExistingCV ? (
+                    <div>
+                      <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>✅</div>
+                      <div style={{ color: '#059669', fontWeight: '600', marginBottom: '0.25rem' }}>
+                        CV Already Attached
+                      </div>
+                      <div style={{ fontSize: '0.9rem', color: 'rgba(75,85,99,0.8)', marginBottom: '0.5rem' }}>
+                        Jamie_Sullivan_CV.pdf (uploaded during account setup)
+                      </div>
+                      <div style={{ 
+                        fontSize: '0.85rem', 
+                        color: '#3B82F6', 
+                        textDecoration: 'underline',
+                        fontWeight: '500'
+                      }}>
+                        Click here to replace with a new CV
                       </div>
                     </div>
                   ) : (
@@ -403,6 +446,23 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
                   )}
                 </label>
               </div>
+              {formData.hasExistingCV && !formData.cvFile && (
+                <div style={{
+                  fontSize: '0.85rem',
+                  color: '#059669',
+                  marginTop: '0.75rem',
+                  padding: '0.75rem',
+                  backgroundColor: 'rgba(16,185,129,0.08)',
+                  border: '1px solid rgba(16,185,129,0.2)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '0.5rem'
+                }}>
+                  <span style={{ fontSize: '1rem', flexShrink: 0 }}>ℹ️</span>
+                  <span>Your existing CV will be sent with this application. Upload a new file only if you want to replace it.</span>
+                </div>
+              )}
             </div>
           </div>
         );
@@ -410,7 +470,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
       case 4:
         return (
           <div>
-            <h3 style={{ color: 'var(--dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <h3 style={{ color: 'var(--dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               💭 Motivation & Availability
             </h3>
             
@@ -524,9 +584,9 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
 
   return (
     <div className="modal active" style={{ zIndex: 1000 }}>
-      <div className="modal-content" style={{ maxWidth: '600px', maxHeight: '90vh', overflow: 'auto' }}>
+      <div className="modal-content" style={{ maxWidth: '500px', maxHeight: '80vh', overflow: 'auto' }}>
         {isSubmitted ? (
-          <div style={{ textAlign: 'center', padding: '2rem', position: 'relative' }}>
+          <div style={{ textAlign: 'center', padding: '1.5rem', position: 'relative' }}>
             <button 
               onClick={() => {
                 setIsSubmitted(false);
@@ -587,7 +647,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
           </div>
         ) : (
           <>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <div>
                 <h2 style={{ color: 'var(--dark)', margin: 0, fontSize: '1.5rem' }}>
                   Apply to {placementTitle}
@@ -602,7 +662,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
             </div>
 
             {/* Progress Indicator */}
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                 {Array.from({ length: totalSteps }, (_, i) => (
                   <div
@@ -624,7 +684,7 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
             </div>
 
             {/* Form Content */}
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
               {renderStep()}
             </div>
 

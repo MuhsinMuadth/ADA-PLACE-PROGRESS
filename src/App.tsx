@@ -12,7 +12,7 @@ import ApplicationModal from './components/ApplicationModal';
 import { useAuth, useNavigation, useModals } from './hooks';
 
 function App() {
-  const { loginError, handleLogin, handleLogout, isAuthenticated } = useAuth();
+  const { user, loginError, handleLogin, handleLogout, isAuthenticated } = useAuth();
   const { 
     currentPage, 
     selectedPlacementId, 
@@ -39,7 +39,7 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'dashboard':
-        return <Dashboard onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
+        return <Dashboard user={user} onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
       case 'placements':
         return <Placements onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
       case 'placement-detail':
@@ -55,7 +55,7 @@ function App() {
       case 'analytics':
         return <Analytics />;
       default:
-        return <Dashboard onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
+        return <Dashboard user={user} onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
     }
   };
 

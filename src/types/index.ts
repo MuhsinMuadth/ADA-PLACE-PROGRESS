@@ -43,6 +43,7 @@ export interface StatCard {
 }
 
 export interface DashboardProps {
+  user: User | null;
   onOpenModal: () => void;
   onViewPlacementDetail: (placementId: number) => void;
   onOpenApplicationModal?: (placementId: number) => void;

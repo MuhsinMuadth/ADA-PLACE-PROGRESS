@@ -9,7 +9,7 @@ interface StudentDashboardProps extends DashboardProps {
   onOpenApplicationModal?: (placementId: number) => void;
 }
 
-const StudentDashboard: React.FC<StudentDashboardProps> = ({ onOpenModal, onViewPlacementDetail, onOpenApplicationModal }) => {
+const StudentDashboard: React.FC<StudentDashboardProps> = ({ user, onOpenModal, onViewPlacementDetail, onOpenApplicationModal }) => {
   const studentStats = [
     { number: '85%', label: 'Profile Complete' },
     { number: '12', label: 'Placement Matches' },

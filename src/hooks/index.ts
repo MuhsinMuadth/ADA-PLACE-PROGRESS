@@ -126,19 +126,3 @@ export const usePlacementFilters = (placements: Placement[]) => {
     resetFilters
   };
 };
-
-/**
- * Hook for managing dashboard user type switching
- */
-export const useDashboardUserType = () => {
-  const [activeUserType, setActiveUserType] = useState<'student' | 'employer' | 'staff'>('student');
-
-  const switchUserType = useCallback((userType: 'student' | 'employer' | 'staff') => {
-    setActiveUserType(userType);
-  }, []);
-
-  return {
-    activeUserType,
-    switchUserType
-  };
-};

@@ -4,7 +4,7 @@ import React from 'react';
 import { DashboardProps } from '../../types';
 import StatsGrid from '../StatsGrid';
 
-const StaffDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetail }) => {
+const StaffDashboard: React.FC<DashboardProps> = ({ user, onOpenModal, onViewPlacementDetail }) => {
   const staffStats = [
     { number: '156', label: 'Active Students' },
     { number: '45', label: 'Partner Employers' },

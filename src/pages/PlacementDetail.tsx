@@ -84,32 +84,32 @@ const PlacementDetail: React.FC<PlacementDetailProps> = ({
       case 'overview':
         return (
           <div>
-            <div style={{ marginBottom: '2rem' }}>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 📝 Role Description
               </h3>
-              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', fontSize: '1rem' }}>
+              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.5', fontSize: '1.05rem' }}>
                 {placement.description}
               </p>
             </div>
 
-            <div style={{ marginBottom: '2rem' }}>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 🎯 Key Responsibilities
               </h3>
-              <ul style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>
-                {placement.responsibilities.map((responsibility, index) => (
+              <ul style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.5', fontSize: '1rem' }}>
+                {placement.responsibilities.slice(0, 4).map((responsibility, index) => (
                   <li key={index} style={{ marginBottom: '0.5rem' }}>{responsibility}</li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                🎓 Learning Outcomes
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
+                🎓 What You'll Learn
               </h3>
-              <ul style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>
-                {placement.learningOutcomes.map((outcome, index) => (
+              <ul style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.5', fontSize: '1rem' }}>
+                {placement.learningOutcomes.slice(0, 4).map((outcome, index) => (
                   <li key={index} style={{ marginBottom: '0.5rem' }}>{outcome}</li>
                 ))}
               </ul>
@@ -120,56 +120,94 @@ const PlacementDetail: React.FC<PlacementDetailProps> = ({
       case 'requirements':
         return (
           <div>
-            <div style={{ marginBottom: '2rem' }}>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                ✅ Essential Requirements
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
+                ✅ Requirements
               </h3>
-              <div style={{ background: 'rgba(16,185,129,0.1)', border: '2px solid rgba(16,185,129,0.3)', borderRadius: '12px', padding: '1.5rem' }}>
-                <ul style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', margin: 0 }}>
+              <div style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.15), rgba(34,197,94,0.05))', border: '1px solid rgba(34,197,94,0.4)', borderRadius: '12px', padding: '1.25rem' }}>
+                <div style={{ display: 'grid', gap: '0.75rem' }}>
                   {placement.requirements.map((requirement, index) => (
-                    <li key={index} style={{ marginBottom: '0.75rem' }}>{requirement}</li>
+                    <div key={index} style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      background: 'rgba(255,255,255,0.08)',
+                      padding: '0.75rem 1rem',
+                      borderRadius: '8px',
+                      border: '1px solid rgba(255,255,255,0.1)'
+                    }}>
+                      <div style={{ 
+                        background: 'rgba(34,197,94,0.2)', 
+                        borderRadius: '50%', 
+                        width: '24px', 
+                        height: '24px', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        fontSize: '0.75rem',
+                        flexShrink: 0
+                      }}>
+                        ✓
+                      </div>
+                      <span style={{ color: 'rgba(255,255,255,0.95)', fontSize: '1rem', lineHeight: '1.4' }}>
+                        {requirement}
+                      </span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
 
-            <div style={{ marginBottom: '2rem' }}>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 🛠️ Technical Skills
               </h3>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '0.75rem' }}>
                 {placement.tags.map(tag => (
-                  <span key={tag} style={{
-                    background: 'rgba(99,102,241,0.2)',
+                  <div key={tag} style={{
+                    background: 'linear-gradient(135deg, rgba(59,130,246,0.2), rgba(147,51,234,0.2))',
                     color: 'white',
-                    padding: '0.75rem 1.25rem',
-                    borderRadius: '20px',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '10px',
                     fontSize: '0.9rem',
                     fontWeight: '600',
-                    border: '2px solid rgba(99,102,241,0.4)'
+                    border: '1px solid rgba(59,130,246,0.4)',
+                    textAlign: 'center',
+                    transition: 'all 0.2s ease',
+                    cursor: 'default',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}>
                     {tag}
-                  </span>
+                  </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 📊 Your Match Score
               </h3>
               <div style={{ 
-                background: 'rgba(16,185,129,0.1)', 
-                border: '2px solid rgba(16,185,129,0.3)', 
+                background: 'linear-gradient(135deg, rgba(34,197,94,0.15), rgba(16,185,129,0.1))', 
+                border: '1px solid rgba(34,197,94,0.4)', 
                 borderRadius: '12px', 
                 padding: '1.5rem',
-                textAlign: 'center'
+                textAlign: 'center',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
               }}>
-                <div style={{ fontSize: '3rem', fontWeight: '800', color: 'var(--secondary)', marginBottom: '0.5rem' }}>
+                <div style={{ 
+                  fontSize: '2.5rem', 
+                  fontWeight: '700', 
+                  background: 'linear-gradient(135deg, #10b981, #34d399)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  marginBottom: '0.5rem' 
+                }}>
                   {placement.matchScore}%
                 </div>
-                <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', margin: 0 }}>
-                  Excellent Match! Your skills and interests align strongly with this role.
+                <p style={{ color: 'rgba(255,255,255,0.95)', fontSize: '1rem', margin: 0, fontWeight: '500' }}>
+                  Excellent Match! Your skills align well with this role.
                 </p>
               </div>
             </div>
@@ -179,54 +217,47 @@ const PlacementDetail: React.FC<PlacementDetailProps> = ({
       case 'company':
         return (
           <div>
-            <div style={{ marginBottom: '2rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                <div style={{ 
-                  fontSize: '4rem', 
-                  background: 'rgba(255,255,255,0.1)', 
-                  padding: '1rem', 
-                  borderRadius: '20px' 
-                }}>
-                  {placement.logo}
-                </div>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                <div style={{ fontSize: '2.5rem' }}>{placement.logo}</div>
                 <div>
-                  <h2 style={{ color: 'white', margin: 0, fontSize: '2rem' }}>{placement.company}</h2>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', margin: '0.5rem 0', fontSize: '1.1rem' }}>
+                  <h2 style={{ color: 'white', margin: 0, fontSize: '1.5rem' }}>{placement.company}</h2>
+                  <p style={{ color: 'rgba(255,255,255,0.8)', margin: '0.25rem 0', fontSize: '0.95rem' }}>
                     {placement.industry}
                   </p>
                 </div>
               </div>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'white' }}>{placement.companySize}</div>
-                  <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Team Size</div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem', marginBottom: '1rem' }}>
+                <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '8px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: '600', color: 'white' }}>{placement.companySize}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Team Size</div>
                 </div>
-                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'white' }}>{placement.established}</div>
-                  <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Established</div>
+                <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '8px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: '600', color: 'white' }}>{placement.established}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Established</div>
                 </div>
-                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'white' }}>{placement.location}</div>
-                  <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Location</div>
+                <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '8px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: '600', color: 'white' }}>{placement.location}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Location</div>
                 </div>
               </div>
             </div>
 
-            <div style={{ marginBottom: '2rem' }}>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 🏢 About the Company
               </h3>
-              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6', fontSize: '1rem' }}>
+              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.5', fontSize: '1.05rem' }}>
                 {placement.companyDescription}
               </p>
             </div>
 
             <div>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 💝 Company Values
               </h3>
-              <ul style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>
+              <ul style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.5', fontSize: '1rem' }}>
                 {placement.companyValues.map((value, index) => (
                   <li key={index} style={{ marginBottom: '0.5rem' }}>{value}</li>
                 ))}
@@ -238,22 +269,22 @@ const PlacementDetail: React.FC<PlacementDetailProps> = ({
       case 'benefits':
         return (
           <div>
-            <div style={{ marginBottom: '2rem' }}>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 🎁 Placement Benefits
               </h3>
-              <div style={{ display: 'grid', gap: '1rem' }}>
+              <div style={{ display: 'grid', gap: '0.75rem' }}>
                 {placement.benefits.map((benefit, index) => (
                   <div key={index} style={{
-                    background: 'rgba(99,102,241,0.1)',
-                    border: '2px solid rgba(99,102,241,0.3)',
-                    borderRadius: '12px',
-                    padding: '1rem',
+                    background: 'rgba(99,102,241,0.08)',
+                    border: '1px solid rgba(99,102,241,0.2)',
+                    borderRadius: '8px',
+                    padding: '0.75rem',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '1rem'
+                    gap: '0.75rem'
                   }}>
-                    <div style={{ fontSize: '1.5rem' }}>✨</div>
+                    <div style={{ fontSize: '1.3rem' }}>✨</div>
                     <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem' }}>{benefit}</div>
                   </div>
                 ))}
@@ -261,26 +292,26 @@ const PlacementDetail: React.FC<PlacementDetailProps> = ({
             </div>
 
             <div style={{ 
-              background: 'rgba(245,158,11,0.1)', 
-              border: '2px solid rgba(245,158,11,0.3)', 
-              borderRadius: '12px', 
-              padding: '1.5rem' 
+              background: 'rgba(245,158,11,0.08)', 
+              border: '1px solid rgba(245,158,11,0.2)', 
+              borderRadius: '8px', 
+              padding: '1rem' 
             }}>
-              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <h3 style={{ color: 'white', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.2rem' }}>
                 💰 Compensation & Timeline
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
                 <div>
-                  <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Placement Salary</div>
-                  <div style={{ color: 'white', fontSize: '1.5rem', fontWeight: '700' }}>{placement.salary}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Placement Salary</div>
+                  <div style={{ color: 'white', fontSize: '1.25rem', fontWeight: '600' }}>{placement.salary}</div>
                 </div>
                 <div>
-                  <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Duration</div>
-                  <div style={{ color: 'white', fontSize: '1.5rem', fontWeight: '700' }}>{placement.duration}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Duration</div>
+                  <div style={{ color: 'white', fontSize: '1.25rem', fontWeight: '600' }}>{placement.duration}</div>
                 </div>
                 <div>
-                  <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Start Date</div>
-                  <div style={{ color: 'white', fontSize: '1.5rem', fontWeight: '700' }}>{placement.startDate}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Start Date</div>
+                  <div style={{ color: 'white', fontSize: '1.25rem', fontWeight: '600' }}>{placement.startDate}</div>
                 </div>
               </div>
             </div>
@@ -294,273 +325,225 @@ const PlacementDetail: React.FC<PlacementDetailProps> = ({
 
   return (
     <div>
-      {/* Header with back button */}
+      {/* Compact Header */}
       <div style={{ 
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'space-between', 
-        marginBottom: '2rem',
-        background: 'linear-gradient(135deg, rgba(99,102,241,0.1), rgba(16,185,129,0.1))',
-        padding: '1.5rem 2rem',
-        borderRadius: '20px',
-        border: '2px solid rgba(255,255,255,0.2)',
-        backdropFilter: 'blur(20px)'
+        marginBottom: '1.5rem',
+        background: 'rgba(255,255,255,0.05)',
+        padding: '1rem 1.5rem',
+        borderRadius: '12px',
+        border: '1px solid rgba(255,255,255,0.1)'
       }}>
         <button 
           onClick={onBack}
           style={{
-            background: 'rgba(255,255,255,0.15)',
-            border: '2px solid rgba(255,255,255,0.3)',
-            borderRadius: '16px',
+            background: 'rgba(255,255,255,0.1)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            borderRadius: '8px',
             color: 'white',
-            padding: '1rem 1.5rem',
+            padding: '0.75rem 1.25rem',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.75rem',
-            fontSize: '1rem',
-            fontWeight: '600',
-            transition: 'all 0.3s ease',
-            backdropFilter: 'blur(10px)'
+            gap: '0.5rem',
+            fontSize: '0.9rem',
+            fontWeight: '500',
+            transition: 'all 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
-            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
           }}
         >
-          ← Back to Placements
+          ← Back
         </button>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {placement.featured && (
             <span style={{
-              background: 'linear-gradient(45deg, var(--accent), #f97316)',
+              background: 'var(--accent)',
               color: 'white',
-              padding: '0.75rem 1.25rem',
-              borderRadius: '25px',
-              fontSize: '0.95rem',
-              fontWeight: '700',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              boxShadow: '0 4px 15px rgba(245, 158, 11, 0.4)'
+              padding: '0.5rem 1rem',
+              borderRadius: '20px',
+              fontSize: '0.8rem',
+              fontWeight: '600'
             }}>
-              ⭐ Featured Opportunity
+              ⭐ Featured
             </span>
           )}
           {placement.urgent && (
             <span style={{
-              background: 'linear-gradient(45deg, var(--danger), #dc2626)',
+              background: 'var(--danger)',
               color: 'white',
-              padding: '0.75rem 1.25rem',
-              borderRadius: '25px',
-              fontSize: '0.95rem',
-              fontWeight: '700',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              boxShadow: '0 4px 15px rgba(239, 68, 68, 0.4)'
+              padding: '0.5rem 1rem',
+              borderRadius: '20px',
+              fontSize: '0.8rem',
+              fontWeight: '600'
             }}>
-              🚨 Urgent Hiring
+              🚨 Urgent
             </span>
           )}
         </div>
       </div>
 
-      {/* Main placement header */}
-      <div className="card" style={{ 
-        marginBottom: '2rem',
-        background: 'linear-gradient(135deg, rgba(99,102,241,0.15), rgba(16,185,129,0.1))',
-        border: '2px solid rgba(255,255,255,0.2)',
-        backdropFilter: 'blur(20px)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
-      }}>
-        <div className="card-content" style={{ padding: '2rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
+      {/* Compact Main Card */}
+      <div className="card" style={{ marginBottom: '1.5rem' }}>
+        <div className="card-content" style={{ padding: '1.5rem' }}>
+          {/* Header Row */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <div style={{ 
-                  fontSize: '3rem', 
-                  background: 'rgba(255,255,255,0.15)', 
-                  padding: '1rem', 
-                  borderRadius: '20px',
-                  border: '2px solid rgba(255,255,255,0.2)'
-                }}>
-                  {placement.logo}
-                </div>
+                <div style={{ fontSize: '2.5rem' }}>{placement.logo}</div>
                 <div>
-                  <h1 style={{ color: 'white', fontSize: '2.75rem', fontWeight: '800', marginBottom: '0.5rem', lineHeight: '1.1' }}>
+                  <h1 style={{ color: 'white', fontSize: '2rem', fontWeight: '700', marginBottom: '0.25rem', lineHeight: '1.1' }}>
                     {placement.role}
                   </h1>
-                  <h2 style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.75rem', fontWeight: '600', marginBottom: '0' }}>
+                  <h2 style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.2rem', fontWeight: '500', margin: 0 }}>
                     {placement.company}
                   </h2>
                 </div>
               </div>
               
+              {/* Quick Info Grid */}
               <div style={{ 
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-                gap: '1rem', 
-                marginBottom: '1.5rem' 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', 
+                gap: '0.75rem', 
+                marginBottom: '1rem' 
               }}>
                 <div style={{ 
-                  background: 'rgba(255,255,255,0.1)', 
-                  padding: '1rem', 
-                  borderRadius: '16px',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem'
+                  background: 'rgba(255,255,255,0.05)', 
+                  padding: '0.75rem', 
+                  borderRadius: '8px',
+                  textAlign: 'center'
                 }}>
-                  <span style={{ fontSize: '1.5rem' }}>📍</span>
-                  <div>
-                    <div style={{ color: 'white', fontWeight: '600' }}>{placement.location}</div>
-                    <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Location</div>
-                  </div>
+                  <div style={{ fontSize: '1.2rem' }}>📍</div>
+                  <div style={{ color: 'white', fontWeight: '600', fontSize: '1rem' }}>{placement.location}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }}>Location</div>
                 </div>
                 <div style={{ 
-                  background: 'rgba(255,255,255,0.1)', 
-                  padding: '1rem', 
-                  borderRadius: '16px',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem'
+                  background: 'rgba(255,255,255,0.05)', 
+                  padding: '0.75rem', 
+                  borderRadius: '8px',
+                  textAlign: 'center'
                 }}>
-                  <span style={{ fontSize: '1.5rem' }}>⏱️</span>
-                  <div>
-                    <div style={{ color: 'white', fontWeight: '600' }}>{placement.duration}</div>
-                    <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Duration</div>
-                  </div>
+                  <div style={{ fontSize: '1.2rem' }}>⏱️</div>
+                  <div style={{ color: 'white', fontWeight: '600', fontSize: '1rem' }}>{placement.duration}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }}>Duration</div>
                 </div>
                 <div style={{ 
-                  background: 'rgba(255,255,255,0.1)', 
-                  padding: '1rem', 
-                  borderRadius: '16px',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem'
+                  background: 'rgba(255,255,255,0.05)', 
+                  padding: '0.75rem', 
+                  borderRadius: '8px',
+                  textAlign: 'center'
                 }}>
-                  <span style={{ fontSize: '1.5rem' }}>💰</span>
-                  <div>
-                    <div style={{ color: 'white', fontWeight: '600' }}>{placement.salary}</div>
-                    <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Salary</div>
-                  </div>
+                  <div style={{ fontSize: '1.2rem' }}>💰</div>
+                  <div style={{ color: 'white', fontWeight: '600', fontSize: '1rem' }}>{placement.salary}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }}>Salary</div>
+                </div>
+                <div style={{ 
+                  background: 'var(--secondary)', 
+                  padding: '0.75rem', 
+                  borderRadius: '8px',
+                  textAlign: 'center'
+                }}>
+                  <div style={{ fontSize: '1.2rem' }}>🎯</div>
+                  <div style={{ color: 'white', fontWeight: '700', fontSize: '1rem' }}>{placement.matchScore}%</div>
+                  <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.85rem' }}>Match</div>
                 </div>
               </div>
+
+              {/* Tags */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                {placement.tags.map(tag => (
+                  <span key={tag} style={{
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    color: 'white',
+                    padding: '0.5rem 0.75rem',
+                    borderRadius: '15px',
+                    fontSize: '0.8rem',
+                    fontWeight: '500'
+                  }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Description */}
+              <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.5', fontSize: '0.95rem', margin: 0 }}>
+                {placement.description}
+              </p>
             </div>
 
-            <div style={{ textAlign: 'center', marginLeft: '2rem' }}>
-              <div style={{
-                background: `linear-gradient(135deg, var(--secondary), #059669)`,
-                color: 'white',
-                padding: '1.5rem 2rem',
-                borderRadius: '25px',
-                fontSize: '1.5rem',
-                fontWeight: '800',
-                marginBottom: '1rem',
-                boxShadow: '0 6px 25px rgba(16,185,129,0.4)',
-                border: '2px solid rgba(255,255,255,0.2)'
-              }}>
-                {placement.matchScore}% Match
-              </div>
-              <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1rem', fontWeight: '600' }}>
+            <div style={{ marginLeft: '2rem', textAlign: 'center' }}>
+              <button 
+                onClick={() => onOpenApplicationModal(placement.id)}
+                style={{
+                  background: 'linear-gradient(135deg, var(--primary), var(--primary-dark))',
+                  color: 'white',
+                  border: 'none',
+                  padding: '1rem 2rem',
+                  borderRadius: '12px',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 15px rgba(99,102,241,0.3)',
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(99,102,241,0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(99,102,241,0.3)';
+                }}
+              >
+                🚀 Apply Now
+              </button>
+              <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem', marginTop: '0.5rem' }}>
                 Apply by: {placement.applicationDeadline}
               </div>
             </div>
           </div>
-
-          {/* Tags */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2rem' }}>
-            {placement.tags.map(tag => (
-              <span key={tag} style={{
-                background: 'rgba(255, 255, 255, 0.2)',
-                color: 'white',
-                padding: '0.75rem 1.25rem',
-                borderRadius: '25px',
-                fontSize: '0.95rem',
-                fontWeight: '600',
-                border: '2px solid rgba(255,255,255,0.2)',
-                backdropFilter: 'blur(10px)'
-              }}>
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Main CTA */}
-          <button 
-            onClick={() => onOpenApplicationModal(placement.id)}
-            style={{
-              background: 'linear-gradient(135deg, var(--primary), var(--primary-dark))',
-              color: 'white',
-              border: 'none',
-              padding: '1.25rem 3rem',
-              borderRadius: '16px',
-              fontSize: '1.3rem',
-              fontWeight: '700',
-              cursor: 'pointer',
-              boxShadow: '0 8px 30px rgba(99,102,241,0.4)',
-              transition: 'all 0.3s ease',
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.75rem'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px)';
-              e.currentTarget.style.boxShadow = '0 12px 35px rgba(99,102,241,0.5)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 8px 30px rgba(99,102,241,0.4)';
-            }}
-          >
-            🚀 Apply Now - Start Your Journey
-          </button>
         </div>
       </div>
 
-      {/* Tab Navigation */}
+      {/* Compact Tab Navigation */}
       <div style={{ 
-        display: 'flex', 
-        gap: '0.75rem', 
-        marginBottom: '2rem',
-        background: 'rgba(255,255,255,0.1)',
-        padding: '0.75rem',
-        borderRadius: '20px',
-        border: '2px solid rgba(255,255,255,0.2)',
-        backdropFilter: 'blur(20px)'
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(4, 1fr)', 
+        gap: '0.5rem', 
+        marginBottom: '1.5rem'
       }}>
         {tabs.map(tab => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key as any)}
             style={{
-              flex: 1,
-              padding: '1.25rem 1.5rem',
+              padding: '0.75rem 1rem',
               background: activeTab === tab.key 
-                ? 'linear-gradient(135deg, var(--primary), var(--primary-dark))' 
-                : 'transparent',
-              border: activeTab === tab.key ? '2px solid rgba(255,255,255,0.3)' : '2px solid transparent',
-              borderRadius: '16px',
+                ? 'var(--primary)' 
+                : 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '8px',
               color: 'white',
-              fontSize: '1rem',
-              fontWeight: '700',
+              fontSize: '0.95rem',
+              fontWeight: '600',
               cursor: 'pointer',
-              transition: 'all 0.3s ease',
+              transition: 'all 0.2s ease',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.75rem',
-              boxShadow: activeTab === tab.key ? '0 4px 20px rgba(99,102,241,0.3)' : 'none'
+              gap: '0.5rem'
             }}
             onMouseEnter={(e) => {
               if (activeTab !== tab.key) {
@@ -569,75 +552,21 @@ const PlacementDetail: React.FC<PlacementDetailProps> = ({
             }}
             onMouseLeave={(e) => {
               if (activeTab !== tab.key) {
-                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
               }
             }}
           >
-            <span style={{ fontSize: '1.2rem' }}>{tab.icon}</span>
+            <span style={{ fontSize: '1.1rem' }}>{tab.icon}</span>
             {tab.label}
           </button>
         ))}
       </div>
 
-      {/* Tab Content */}
+      {/* Compact Tab Content */}
       <div className="card">
-        <div className="card-content">
+        <div className="card-content" style={{ padding: '1.5rem' }}>
           {renderTabContent()}
         </div>
-      </div>
-
-      {/* Bottom CTA */}
-      <div style={{ 
-        position: 'sticky', 
-        bottom: '2rem', 
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.95))', 
-        padding: '2rem', 
-        borderRadius: '20px',
-        border: '2px solid rgba(255,255,255,0.2)',
-        marginTop: '3rem',
-        display: 'flex',
-        gap: '2rem',
-        alignItems: 'center',
-        backdropFilter: 'blur(20px)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.5)'
-      }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ color: 'white', fontWeight: '800', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
-            Ready to apply for this amazing opportunity?
-          </div>
-          <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1rem' }}>
-            Join {placement.company} and accelerate your career in {placement.sector}
-          </div>
-        </div>
-        <button 
-          onClick={() => onOpenApplicationModal(placement.id)}
-          style={{
-            background: 'linear-gradient(135deg, var(--secondary), #059669)',
-            color: 'white',
-            border: 'none',
-            padding: '1.25rem 2.5rem',
-            borderRadius: '16px',
-            fontSize: '1.2rem',
-            fontWeight: '700',
-            cursor: 'pointer',
-            boxShadow: '0 6px 20px rgba(16,185,129,0.4)',
-            transition: 'all 0.3s ease',
-            whiteSpace: 'nowrap',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-3px)';
-            e.currentTarget.style.boxShadow = '0 8px 25px rgba(16,185,129,0.5)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(16,185,129,0.4)';
-          }}
-        >
-          Apply Now 🚀
-        </button>
       </div>
     </div>
   );

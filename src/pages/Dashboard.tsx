@@ -1,52 +1,65 @@
 import React from 'react';
 import { DashboardProps } from '../types';
-import { useDashboardUserType } from '../hooks';
 import StudentDashboard from '../components/dashboards/StudentDashboard';
 import EmployerDashboard from '../components/dashboards/EmployerDashboard';
 import StaffDashboard from '../components/dashboards/StaffDashboard';
 
-const Dashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetail, onOpenApplicationModal }) => {
-  const { activeUserType, switchUserType } = useDashboardUserType();
-
+const Dashboard: React.FC<DashboardProps> = ({ user, onOpenModal, onViewPlacementDetail, onOpenApplicationModal }) => {
   const renderDashboard = () => {
-    switch (activeUserType) {
+    if (!user) return null;
+    
+    switch (user.role) {
       case 'student':
-        return <StudentDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} onOpenApplicationModal={onOpenApplicationModal} />;
+        return <StudentDashboard user={user} onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} onOpenApplicationModal={onOpenApplicationModal} />;
       case 'employer':
-        return <EmployerDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
+        return <EmployerDashboard user={user} onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
       case 'staff':
-        return <StaffDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
+        return <StaffDashboard user={user} onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
       default:
-        return <StudentDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} onOpenApplicationModal={onOpenApplicationModal} />;
+        return <StudentDashboard user={user} onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} onOpenApplicationModal={onOpenApplicationModal} />;
+    }
+  };
+
+  const getDashboardTitle = () => {
+    if (!user) return 'Dashboard';
+    
+    switch (user.role) {
+      case 'student':
+        return 'Student Dashboard';
+      case 'employer':
+        return 'Employer Portal';
+      case 'staff':
+        return 'Staff Admin Dashboard';
+      default:
+        return 'Dashboard';
+    }
+  };
+
+  const getDashboardSubtitle = () => {
+    if (!user) return 'Welcome to ADA Place & Progress';
+    
+    switch (user.role) {
+      case 'student':
+        return 'Track your placement journey and discover new opportunities';
+      case 'employer':
+        return 'Manage placements and connect with talented students';
+      case 'staff':
+        return 'Oversee the placement ecosystem and support student success';
+      default:
+        return 'Welcome to ADA Place & Progress';
     }
   };
 
   return (
     <>
       <div className="dashboard-header">
-        <h1 className="dashboard-title">The ADA Place & Progress Platform</h1>
-        <p className="dashboard-subtitle">Connecting T-Level students with industry placements that drive career success</p>
-      </div>
-
-      <div className="user-type-selector">
-        <button 
-          className={`user-type-btn ${activeUserType === 'student' ? 'active' : ''}`} 
-          onClick={() => switchUserType('student')}
-        >
-          👨‍🎓 Student Dashboard
-        </button>
-        <button 
-          className={`user-type-btn ${activeUserType === 'employer' ? 'active' : ''}`} 
-          onClick={() => switchUserType('employer')}
-        >
-          🏢 Employer Portal
-        </button>
-        <button 
-          className={`user-type-btn ${activeUserType === 'staff' ? 'active' : ''}`} 
-          onClick={() => switchUserType('staff')}
-        >
-          👩‍💼 Staff Admin
-        </button>
+        <h1 className="dashboard-title">{getDashboardTitle()}</h1>
+        <p className="dashboard-subtitle">{getDashboardSubtitle()}</p>
+        {user && (
+          <div className="welcome-message">
+            Welcome back, <strong>{user.name}</strong>!
+          </div>
+        )}
       </div>
 
       {renderDashboard()}

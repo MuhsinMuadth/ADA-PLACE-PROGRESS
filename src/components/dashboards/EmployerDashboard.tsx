@@ -5,7 +5,7 @@ import { DashboardProps } from '../../types';
 import { handlePlacementCardClick } from '../../utils';
 import StatsGrid from '../StatsGrid';
 
-const EmployerDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetail }) => {
+const EmployerDashboard: React.FC<DashboardProps> = ({ user, onOpenModal, onViewPlacementDetail }) => {
   const employerStats = [
     { number: '24', label: 'Available Students' },
     { number: '6', label: 'Active Placements' },
