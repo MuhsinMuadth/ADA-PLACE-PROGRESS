@@ -1,13 +1,5 @@
 import React from 'react';
-
-type Page = 'dashboard' | 'placements' | 'placement-detail' | 'progress' | 'analytics';
-
-interface HeaderProps {
-  currentPage: Page;
-  onNavigate: (page: Page) => void;
-  onOpenProfile: () => void;
-  onLogout: () => void;
-}
+import { HeaderProps } from '../types';
 
 const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenProfile, onLogout }) => {
   return (

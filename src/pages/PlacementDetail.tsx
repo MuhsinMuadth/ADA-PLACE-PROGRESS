@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-
-interface PlacementDetailProps {
-  placementId: number;
-  onBack: () => void;
-  onOpenApplicationModal: (placementId: number) => void;
-}
+import { PlacementDetailProps } from '../types';
 
 const PlacementDetail: React.FC<PlacementDetailProps> = ({ 
   placementId, 
