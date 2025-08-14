@@ -526,7 +526,39 @@ const ApplicationModal: React.FC<ApplicationModalProps> = ({
     <div className="modal active" style={{ zIndex: 1000 }}>
       <div className="modal-content" style={{ maxWidth: '600px', maxHeight: '90vh', overflow: 'auto' }}>
         {isSubmitted ? (
-          <div style={{ textAlign: 'center', padding: '2rem' }}>
+          <div style={{ textAlign: 'center', padding: '2rem', position: 'relative' }}>
+            <button 
+              onClick={() => {
+                setIsSubmitted(false);
+                setCurrentStep(1);
+                onClose();
+              }}
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                background: 'rgba(0,0,0,0.1)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '32px',
+                height: '32px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                fontSize: '1.2rem',
+                color: 'rgba(0,0,0,0.6)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(0,0,0,0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(0,0,0,0.1)';
+              }}
+            >
+              ×
+            </button>
             <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🎉</div>
             <h2 style={{ color: 'var(--primary)', marginBottom: '1rem' }}>Application Submitted!</h2>
             <p style={{ color: 'var(--text)', fontSize: '1.1rem', marginBottom: '1rem' }}>

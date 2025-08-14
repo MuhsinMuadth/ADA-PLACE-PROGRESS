@@ -5,19 +5,19 @@ import StudentDashboard from '../components/dashboards/StudentDashboard';
 import EmployerDashboard from '../components/dashboards/EmployerDashboard';
 import StaffDashboard from '../components/dashboards/StaffDashboard';
 
-const Dashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetail }) => {
+const Dashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetail, onOpenApplicationModal }) => {
   const { activeUserType, switchUserType } = useDashboardUserType();
 
   const renderDashboard = () => {
     switch (activeUserType) {
       case 'student':
-        return <StudentDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
+        return <StudentDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} onOpenApplicationModal={onOpenApplicationModal} />;
       case 'employer':
         return <EmployerDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
       case 'staff':
         return <StaffDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
       default:
-        return <StudentDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} />;
+        return <StudentDashboard onOpenModal={onOpenModal} onViewPlacementDetail={onViewPlacementDetail} onOpenApplicationModal={onOpenApplicationModal} />;
     }
   };
 

@@ -6,7 +6,7 @@ import { handlePlacementCardClick } from '../utils';
 import StatsGrid from '../components/StatsGrid';
 import PlacementCard from '../components/PlacementCard';
 
-const Placements: React.FC<PlacementsProps> = ({ onViewPlacementDetail }) => {
+const Placements: React.FC<PlacementsProps> = ({ onViewPlacementDetail, onOpenApplicationModal }) => {
   const {
     activeFilter,
     searchTerm,
@@ -137,6 +137,7 @@ const Placements: React.FC<PlacementsProps> = ({ onViewPlacementDetail }) => {
             key={placement.id}
             placement={placement}
             onViewDetail={onViewPlacementDetail}
+            onApply={onOpenApplicationModal}
             onPlacementCardClick={(e) => handlePlacementCardClick(e, 'translateY(-5px) scale(1.02)')}
           />
         ))}

@@ -39,9 +39,9 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'dashboard':
-        return <Dashboard onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} />;
+        return <Dashboard onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
       case 'placements':
-        return <Placements onViewPlacementDetail={handleViewPlacementDetail} />;
+        return <Placements onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
       case 'placement-detail':
         return (
           <PlacementDetail 
@@ -55,7 +55,7 @@ function App() {
       case 'analytics':
         return <Analytics />;
       default:
-        return <Dashboard onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} />;
+        return <Dashboard onOpenModal={openModal} onViewPlacementDetail={handleViewPlacementDetail} onOpenApplicationModal={handleOpenApplicationModal} />;
     }
   };
 

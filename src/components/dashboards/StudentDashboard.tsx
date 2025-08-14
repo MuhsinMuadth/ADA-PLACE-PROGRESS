@@ -5,7 +5,11 @@ import { DashboardProps } from '../../types';
 import { handlePlacementCardClick } from '../../utils';
 import StatsGrid from '../StatsGrid';
 
-const StudentDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetail }) => {
+interface StudentDashboardProps extends DashboardProps {
+  onOpenApplicationModal?: (placementId: number) => void;
+}
+
+const StudentDashboard: React.FC<StudentDashboardProps> = ({ onOpenModal, onViewPlacementDetail, onOpenApplicationModal }) => {
   const studentStats = [
     { number: '85%', label: 'Profile Complete' },
     { number: '12', label: 'Placement Matches' },
@@ -18,6 +22,59 @@ const StudentDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlaceme
       <StatsGrid stats={studentStats} />
 
       <div className="dashboard-grid">
+        <div className="card">
+          <div className="card-header">
+            <div className="card-icon">📋</div>
+            <div className="card-title">My Applications</div>
+          </div>
+          <div className="card-content">
+            <div style={{marginBottom: '1.5rem'}}>
+              {/* Active Application */}
+              <div style={{marginBottom: '1rem', padding: '1rem', background: 'rgba(245,158,11,0.1)', border: '2px solid rgba(245,158,11,0.3)', borderRadius: '12px'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                  <div>
+                    <strong style={{color: 'white', fontSize: '1rem'}}>TechFlow Digital</strong>
+                    <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)'}}>Full-Stack Developer</div>
+                  </div>
+                  <span style={{
+                    background: 'var(--accent)', 
+                    color: 'white', 
+                    padding: '0.25rem 0.75rem', 
+                    borderRadius: '15px', 
+                    fontSize: '0.8rem',
+                    fontWeight: '600'
+                  }}>
+                    📧 Under Review
+                  </span>
+                </div>
+                <div style={{fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)'}}>Applied 2 days ago • Expected response by Friday</div>
+              </div>
+
+              {/* Recent Rejection */}
+              <div style={{marginBottom: '1rem', padding: '1rem', background: 'rgba(239,68,68,0.1)', border: '2px solid rgba(239,68,68,0.3)', borderRadius: '12px'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem'}}>
+                  <div>
+                    <strong style={{color: 'white', fontSize: '1rem'}}>DataFlow Analytics</strong>
+                    <div style={{fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)'}}>Data Analyst</div>
+                  </div>
+                  <span style={{
+                    background: 'var(--danger)', 
+                    color: 'white', 
+                    padding: '0.25rem 0.75rem', 
+                    borderRadius: '15px', 
+                    fontSize: '0.8rem',
+                    fontWeight: '600'
+                  }}>
+                    ❌ Not Selected
+                  </span>
+                </div>
+                <div style={{fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)'}}>Feedback: Strong technical skills, seeking different specialization</div>
+              </div>
+            </div>
+            <button className="btn btn-secondary" style={{width: '100%'}}>View All Applications</button>
+          </div>
+        </div>
+
         <div className="card">
           <div className="card-header">
             <div className="card-icon">🎯</div>
@@ -62,7 +119,7 @@ const StudentDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlaceme
                 </div>
                 
                 <div className="placement-details" style={{ marginBottom: '0.75rem', fontSize: '0.85rem' }}>
-                  📍 Manchester • ⏱️ 6 months • 💰 £18,000 • 🏠 Remote/Hybrid
+                  📍 Manchester • ⏱️ 6 months • 💰 £5000 • 🏠 Remote/Hybrid
                 </div>
                 
                 <div className="placement-tags" style={{ marginBottom: '1rem' }}>
@@ -73,7 +130,16 @@ const StudentDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlaceme
                 </div>
                 
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
-                  <button className="btn btn-primary" style={{ flex: 1 }}>🚀 Apply Now</button>
+                  <button 
+                    className="btn btn-primary" 
+                    style={{ flex: 1 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenApplicationModal?.(1);
+                    }}
+                  >
+                    🚀 Apply Now
+                  </button>
                   <button 
                     className="btn btn-secondary" 
                     onClick={(e) => {
@@ -107,7 +173,7 @@ const StudentDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlaceme
               </div>
               
               <div className="placement-details" style={{ marginBottom: '0.75rem', fontSize: '0.85rem' }}>
-                📍 Birmingham • ⏱️ 8 months • 💰 £19,500 • 🏢 Hybrid
+                📍 Birmingham • ⏱️ 8 months • 💰 £6000 • 🏢 Hybrid
               </div>
               
               <div className="placement-tags" style={{ marginBottom: '1rem' }}>
@@ -118,7 +184,16 @@ const StudentDashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlaceme
               </div>
               
               <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <button className="btn btn-secondary" style={{ flex: 1 }}>Learn More</button>
+                <button 
+                  className="btn btn-secondary" 
+                  style={{ flex: 1 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onOpenApplicationModal?.(2);
+                  }}
+                >
+                  🚀 Apply Now
+                </button>
                 <button 
                   className="btn btn-secondary" 
                   onClick={(e) => {

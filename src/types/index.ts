@@ -45,10 +45,12 @@ export interface StatCard {
 export interface DashboardProps {
   onOpenModal: () => void;
   onViewPlacementDetail: (placementId: number) => void;
+  onOpenApplicationModal?: (placementId: number) => void;
 }
 
 export interface PlacementsProps {
   onViewPlacementDetail: (placementId: number) => void;
+  onOpenApplicationModal?: (placementId: number) => void;
 }
 
 export interface PlacementDetailProps {
