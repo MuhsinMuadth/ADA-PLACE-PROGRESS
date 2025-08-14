@@ -74,9 +74,9 @@ const Dashboard: React.FC<DashboardProps> = ({ onOpenModal, onViewPlacementDetai
             <div className="card-header">
               <div className="card-icon">🎯</div>
               <div className="card-title">Recommended For You</div>
-              <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>Based on your T-Level profile and interests</div>
             </div>
             <div className="card-content">
+              <p style={{marginBottom: '1rem'}}>Based on your T-Level profile and interests:</p>
               <div className="placement-card" onClick={handlePlacementCardClick} style={{ marginBottom: '1rem', position: 'relative' }}>
                 {/* Featured badge */}
                 <div style={{
