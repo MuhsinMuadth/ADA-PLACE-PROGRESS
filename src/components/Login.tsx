@@ -152,7 +152,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, error }) => {
                 <a href="#" className="login-link">📞 Need Help?</a>
               </div>
               <p className="login-info">
-                New to ADA? Contact your course coordinator for access.
+                New to ADA? <span className="signup-link" onClick={() => alert('Sign up functionality coming soon!')}>Sign up here</span>
               </p>
             </div>
           </form>

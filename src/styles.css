@@ -818,6 +818,17 @@ body {
     transform: translateY(-1px);
 }
 
+.signup-link {
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+    color: white;
+}
+
 .login-info {
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.8rem;
